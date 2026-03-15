@@ -106,7 +106,7 @@ function ForbesStrip() {
       <span className="forbes-wordmark">Forbes</span>
       <div className="forbes-body">
         <span className="forbes-main">30 Under 30 Poland</span>
-        <span className="forbes-sub">Class of 2023 · Finance &amp; VC</span>
+        <span className="forbes-sub">2025 Batch</span>
       </div>
     </a>
   );
