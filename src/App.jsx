@@ -64,13 +64,12 @@ function SocialRow() {
 function Hero() {
   return (
     <div className="hero fade-section" style={{ animationDelay: '80ms' }}>
-      <p className="hero-label">// co-founder · cfo · author</p>
+      <p className="hero-label">// entrepreneur · author · AI for CFO enthusiast</p>
       <h1 className="hero-name">Matt Kopiec</h1>
-      <p className="hero-role">incro · cfo studio · warsaw</p>
+      <p className="hero-role">incro · cfo studio · warsaw · poland</p>
       <p className="hero-bio">
-        Building investor-ready finances for tech companies. Co-founder of incro
-        and CFO Studio — an AI-powered financial intelligence platform built on
-        zero hallucinations.
+        I help CFOs implement AI and turn messy companies finances into investor-ready stories.
+        Co-founder of incro and CFO Studio — an AI agent for finance. Dad of 1.
       </p>
     </div>
   );
@@ -80,9 +79,9 @@ function Hero() {
 function Badges() {
   const items = [
     'Forbes 30 Under 30 Poland',
-    'SGH Graduate',
-    'Warsaw AI Summit',
-    '50+ Companies Advised',
+    'Warsaw School of Economics Graduate',
+    'Book author',
+    '100+ Companies Advised',
   ];
 
   return (
@@ -101,7 +100,7 @@ function ForbesStrip() {
       <span className="forbes-wordmark">Forbes</span>
       <div className="forbes-body">
         <span className="forbes-main">30 Under 30 Poland</span>
-        <span className="forbes-sub">Class of 2023 · Finance &amp; VC</span>
+        <span className="forbes-sub">2025 Batch</span>
       </div>
     </div>
   );
@@ -148,19 +147,19 @@ function Ventures() {
 function Writing() {
   const pieces = [
     {
-      title: 'Investment Profitability Assessment',
+      title: '4 most common mistakes in startup finances',
+      meta: 'article · 2023',
+      href: 'https://www.linkedin.com/pulse/ive-analyzed-over-100-startup-financial-statements-4-most-kopiec-okpif/?trackingId=3eB7%2FZU%2BRKGLvdt%2BSF4yhw%3D%3D',
+    },
+    {
+      title: "My Personal summary of 2025",
+      meta: 'article · 2025',
+      href: 'https://www.linkedin.com/pulse/my-personal-summary-2025-matt-kopiec-ok6nf/?trackingId=3eB7%2FZU%2BRKGLvdt%2BSF4yhw%3D%3D',
+    },
+    {
+      title: 'Methods and procedures in fixed asset investment assessment',
       meta: 'book · 2023',
-      href: LINKS.book,
-    },
-    {
-      title: "AI in Finance — When Getting It Wrong Isn't an Option",
-      meta: 'talk · 2025',
-      href: LINKS.talk,
-    },
-    {
-      title: 'Zero Based Budgeting for SaaS Companies',
-      meta: 'article · 2024',
-      href: LINKS.article,
+      href: 'https://ksiegarnia.difin.pl/metody-i-procedury-w-ocenie-inwestycji-rzeczowych',
     },
   ];
 
