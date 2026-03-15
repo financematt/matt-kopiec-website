@@ -96,13 +96,19 @@ function Badges() {
 
 function ForbesStrip() {
   return (
-    <div className="forbes-strip fade-section" style={{ animationDelay: '240ms' }}>
+    
+      href="https://www.forbes.pl/lista-30-przed-30-forbesa-zdolni-ambitni-odwazni-mlodzi-zmieniaja-swiat/mdnhtlg"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="forbes-strip fade-section"
+      style={{ animationDelay: '240ms', cursor: 'pointer', display: 'flex' }}
+    >
       <span className="forbes-wordmark">Forbes</span>
       <div className="forbes-body">
         <span className="forbes-main">30 Under 30 Poland</span>
-        <span className="forbes-sub">2025 Batch</span>
+        <span className="forbes-sub">Class of 2023 · Finance &amp; VC</span>
       </div>
-    </div>
+    </a>
   );
 }
 
