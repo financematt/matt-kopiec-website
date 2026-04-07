@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matt Kopiec</title>
+  <meta name="description" content="Matt Kopiec — Co-founder of incro and CFO Studio." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%230f1a3a'/><circle cx='16' cy='16' r='15.25' fill='none' stroke='%231e2d5a' stroke-width='1.5'/><circle cx='16' cy='16' r='4' fill='%23f4a5b8'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Base ── */
+    html, body {
+      background: #ffffff;
+      color: #555555;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Page ── */
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 3rem;
+    }
+
+    /* ── Hero ── */
+    .hero { margin-bottom: 2.5rem; }
+
+    .hero-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 42px;
+      font-weight: 400;
+      color: #000000;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-bio {
+      font-size: 14px;
+      font-weight: 300;
+      color: #555555;
+      line-height: 1.75;
+      max-width: 420px;
+    }
+
+    /* ── Accordion ── */
+    .accordion { border-top: 1.5px solid #000000; }
+    .acc-item   { border-bottom: 1.5px solid #000000; }
+
+    .acc-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .acc-trigger:hover .acc-label { text-decoration: underline; }
+
+    .acc-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #aaaaaa;
+      min-width: 28px;
+      padding-right: 12px;
+      border-right: 1px solid #eeeeee;
+      margin-right: 14px;
+      line-height: 1;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .acc-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #000000;
+      flex: 1;
+    }
+
+    .acc-icon {
+      font-size: 20px;
+      font-weight: 300;
+      color: #aaaaaa;
+      line-height: 1;
+      transition: transform 200ms ease, color 200ms ease;
+      flex-shrink: 0;
+    }
+
+    .acc-icon.open {
+      transform: rotate(45deg);
+      color: #000000;
+    }
+
+    .acc-body {
+      display: none;
+      padding: 0.25rem 0 1.25rem 42px;
+      flex-direction: column;
+    }
+
+    .acc-body.open { display: flex; }
+
+    /* ── Social ── */
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 300;
+      color: #222222;
+      padding: 7px 0;
+      border-bottom: 0.5px solid #eeeeee;
+      transition: color 150ms;
+    }
+    .social-link:last-child { border-bottom: none; }
+    .social-link:hover { color: #000000; }
+
+    .social-symbol {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #aaaaaa;
+      width: 22px;
+      flex-shrink: 0;
+    }
+
+    /* ── Ventures ── */
+    .venture-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 0.5px solid #eeeeee;
+    }
+    .venture-link:last-child { border-bottom: none; }
+    .venture-link:hover .venture-name { text-decoration: underline; }
+
+    .venture-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #000000;
+      margin-bottom: 2px;
+    }
+
+    .venture-desc {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #aaaaaa;
+    }
+
+    .venture-arrow { font-size: 13px; color: #cccccc; flex-shrink: 0; }
+
+    /* ── Recognition ── */
+    .forbes-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+    }
+    .forbes-link:hover .forbes-word { text-decoration: underline; }
+
+    .forbes-word {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #b8922a;
+    }
+
+    .forbes-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #aaaaaa;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #cccccc;
+    }
+
+    .footer-mark {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: #0f1a3a;
+      border: 1px solid #1e2d5a;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .footer-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: #f4a5b8;
+      opacity: 0.7;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .page      { padding: 2.5rem 1.25rem; }
+      .hero-name { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1 class="hero-name">Matt<br>Kopiec</h1>
+      <p class="hero-bio">
+        Building investor-ready finances for tech companies. Co-founder of
+        incro and CFO Studio — an AI-powered financial intelligence platform
+        built on zero hallucinations.
+      </p>
+    </div>
+
+    <!-- Accordion -->
+    <div class="accordion">
+
+      <!-- 01 Social -->
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggle(this)">
+          <span class="acc-num">01</span>
+          <span class="acc-label">Social</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <a href="https://x.com/YOURHANDLE" class="social-link" target="_blank" rel="noopener noreferrer">
+            <span class="social-symbol">𝕏</span> @mkopiec
+          </a>
+          <a href="https://linkedin.com/in/YOURHANDLE" class="social-link" target="_blank" rel="noopener noreferrer">
+            <span class="social-symbol">in</span> linkedin
+          </a>
+          <a href="https://github.com/YOURHANDLE" class="social-link" target="_blank" rel="noopener noreferrer">
+            <span class="social-symbol">{ }</span> github
+          </a>
+          <a href="https://reddit.com/u/YOURHANDLE" class="social-link" target="_blank" rel="noopener noreferrer">
+            <span class="social-symbol">r/</span> reddit
+          </a>
+          <a href="https://instagram.com/YOURHANDLE" class="social-link" target="_blank" rel="noopener noreferrer">
+            <span class="social-symbol">◎</span> instagram
+          </a>
+        </div>
+      </div>
+
+      <!-- 02 Ventures -->
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggle(this)">
+          <span class="acc-num">02</span>
+          <span class="acc-label">Ventures</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <a href="https://incro.pl" class="venture-link" target="_blank" rel="noopener noreferrer">
+            <div>
+              <p class="venture-name">incro</p>
+              <p class="venture-desc">financial consulting · investor-ready finances</p>
+            </div>
+            <span class="venture-arrow">→</span>
+          </a>
+          <a href="https://cfostudio.io" class="venture-link" target="_blank" rel="noopener noreferrer">
+            <div>
+              <p class="venture-name">CFO Studio</p>
+              <p class="venture-desc">AI financial analysis · zero hallucinations</p>
+            </div>
+            <span class="venture-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 03 Recognition -->
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggle(this)">
+          <span class="acc-num">03</span>
+          <span class="acc-label">Recognition</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <a href="https://www.forbes.pl/lista-30-przed-30-forbesa-zdolni-ambitni-odwazni-mlodzi-zmieniaja-swiat/mdnhtlg" class="forbes-link" target="_blank" rel="noopener noreferrer">
+            <span class="forbes-word">Forbes</span>
+            <span class="forbes-text">30 Under 30 Poland · 2025 Batch</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="footer-copy">© 2026 matt kopiec</span>
+      <div class="footer-mark">
+        <div class="footer-dot"></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    function toggle(btn) {
+      const body = btn.nextElementSibling;
+      const icon = btn.querySelector('.acc-icon');
+      const isOpen = body.classList.contains('open');
+      document.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.acc-icon').forEach(i => i.classList.remove('open'));
+      if (!isOpen) {
+        body.classList.add('open');
+        icon.classList.add('open');
+      }
+    }
+  </script>
+</body>
+</html>
